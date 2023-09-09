@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block title %}
+History
+{% endblock %}
+
+
+{% block main %}
+<div class="content">
+    <div class="boxchat">
+        <div>
+            <ul>
+                {% for message in messages %}
+                    <li class="p-2 left">
+                        <div class="element">
+                            <div class="infos d-flex w-100">
+                                <p class="pseudo pr-2 m-2">{{ message["username"] }}</p>
+                                <p class="left-0 w-100 mt-2" style="word-break: break-all;">{{ message["message"] }}</p>
+                                </div>
+                            <div class="date m-2">{{ message["time"] }}</div>
+                        </div>
+                    </li> 
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}

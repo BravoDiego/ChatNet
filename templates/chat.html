@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Chat
+{% endblock %}
+
+
+{% block main %}
+<div class="row">
+    <div class="col"><hr></div>
+    <div class="col-auto"><p class="h3" text-align="center">Start Chatting</p></div>
+    <div class="col"><hr></div>
+</div>
+<div class="content">
+    <div class="boxchat limit-height">
+        <div class="chat w-100 h-100 overflow-auto msgs">
+            <ul>
+                {% for message in messages %}
+                    {% if message["usertest"] %}
+                        <li class="p-2 left">
+                            <div class="element">
+                                <div class="infos d-flex w-100">
+                                    <p class="pseudo pr-2 m-2">{{ message["username"] }}</p>
+                                    <p class="left-0 w-100 mt-2 text-wrap" style="word-break: break-all;">{{ message["message"] }}</p>
+                                    </div>
+                                <div class="date m-2">{{ message["time"] }}</div>
+                            </div>
+                        </li>                        
+                    {% else %}
+                        <li class="p-2 right">
+                            <div class="element">
+                                <div class="infos d-flex w-100 flex-row-reverse">
+                                    <p class="pseudo pr-2 m-2" style="font-style: italic;">{{ message["username"] }}</p>
+                                    <p class="left-0 w-100 mt-2" style="text-align: left; margin-left: 0.5rem; word-break: break-all;">{{ message["message"] }}</p>                                    </div>
+                                <div class="date m-2">{{ message["time"] }}</div>
+                            </div>
+                        </li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+            <div id="footerchat"></div>
+        </div>
+
+        <div class="w-100">
+            <form action="/#footerchat" method="post" class="d-flex w-100 pt-1">
+                <div class="col">
+                    <input autocomplete="off" autofocus class="form-control mx-auto w-100" id="message" name="message" placeholder="Messages" type="text" style="border-radius: 5px 0 0 5px;">
+                </div>
+                <button class="btn btn-dark" type="submit" style="border-radius: 0 5px 5px 0;">Send</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

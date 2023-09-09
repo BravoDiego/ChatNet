@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Account Information
+{% endblock %}
+
+
+{% block main %}
+<div class="d-flex justify-content-center">
+    <div class="card p-4">
+        <form action="/account" method="post">
+            <p class="h5 mb-3">Current Username : {{ username }}</p>
+            <div class="mb-3">
+                <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="username" name="username" placeholder="New Username" type="text">
+            </div>
+            <div class="mb-3">
+                <input class="form-control mx-auto w-auto" id="password" name="password" placeholder="Current Password" type="password">
+            </div>
+            <div class="mb-3">
+                <input class="form-control mx-auto w-auto" id="password" name="new_password" placeholder="New Password" type="password">
+            </div>
+            <button class="btn btn-dark" type="submit">Save</button>
+        </form>
+        <form action="/delete">
+            <button class="h6 text-light btn btn-danger mt-4" type="submit">Delete Account</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,79 @@
+* {
+    box-sizing: border-box;
+    list-style: none;
+    scroll-behavior: smooth;
+}
+
+ol, ul {
+    padding-left: 0 !important;
+}
+
+html body main .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+html body main .content .boxchat {
+    width: 80%; /* Media queries */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1rem;
+    background-color: rgb(232, 232, 232); 
+    border-radius: 5px;
+}
+html body main .content .limit-height {
+    height: 65vh;
+}
+html body main .content .boxchat .chat {
+    overflow-y: scroll;
+    scrollbar-width: none;
+}
+html body main .content .boxchat .chat::-webkit-scrollbar {
+    display: none;
+}
+
+html body main .content .send input[type=text]:focus {
+    box-shadow: none;
+}
+html body main .content .boxchat li {
+    border-radius: 5px;
+    margin-bottom: 15px;
+    border: 1px rgb(188, 188, 188) solid;
+}
+html body main .content .boxchat li.left {
+    text-align: left;
+    background-color: lightgray;
+}
+html body main .content .boxchat li.right {
+    text-align: right;
+    background-color: whitesmoke;
+}
+.pseudo {
+    width: 7%; /* media queries */
+    font-weight: bold;
+}
+.date {
+    color: rgb(170, 170, 170);
+}
+
+@media (max-width:750px) {
+    html body main .content .boxchat {
+        width: 100%;
+    }
+    .pseudo {
+        width: 10vw;
+    }
+}
+
+@media (max-width:450px) {
+    .pseudo {
+        width: 12vw;
+    }
+}
+
+@media (max-width:340px) {
+    .pseudo {
+        width: 15vw;
+    }
+}
